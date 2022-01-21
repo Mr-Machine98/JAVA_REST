@@ -31,13 +31,14 @@ public class Principal {
             String usr = "";
             String pass = "";
 
-            //Lee el archivo .ini
+            //Lee el archivo .ini cadena de conexion base de datos
             if (conn.getParametrosConn()) {
 
                 Connection conexion = conn.getConnection();
                 PreparedStatement stmt = conexion.prepareStatement(SELECT);
                 ResultSet rs = stmt.executeQuery();
 
+                //Traer los datos de la bd
                 while (rs.next()) {
                     urlSignIn = rs.getString("VCURL_TOKEN");
                     urlAuth = rs.getString("VCURL_ENVIO");
