@@ -1,0 +1,54 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package main;
+
+import static aunteticar.Auth.autenticar;
+import static envioJson.Envio.enviarJSON;
+import conexionDB.ConnectionManager;
+import java.io.IOException;
+
+
+
+
+/**
+ *
+ * @author Juan Camilo Mamian
+ */
+public class Principal {
+
+    public static void main(String[] args) {
+        try {
+            
+            //Conexion para obtener las credenciales.
+            ConnectionManager conn = new ConnectionManager();
+            
+            //Sugerencia otra tabla para cambiar estos param de manera dinamic
+            String urlSignIn = "https://mvmesmeterreading-prod-aire.azurewebsites.net/api/Authenticate";
+            String urlAuth = "https://mvmesmeterreading-prod-aire.azurewebsites.net/api/SaveReadings";
+            String usr = "aire@mvmenergysuite.com";
+            String pass = "vdDjQJ9MZDmtNXTH";
+
+            doPost(urlSignIn, urlAuth, usr, pass, conn);
+
+        } catch (IOException ex) {
+            System.out.println("Se generó un error al hacer HTTP POST.");
+            ex.printStackTrace(System.out);
+        } catch (Exception ex) {
+            ex.printStackTrace(System.out);
+        }
+    }
+
+    public static void doPost(String signIn, String auth, String usr, String pass, ConnectionManager conn) throws IOException {
+        //Enviar usr and pass, Configurar el header mas en el send JSON's.
+        enviarJSON( autenticar(signIn, usr, pass), auth, conn); // method auntenticar retorna el token 
+    }
+
+    
+
+
+}
+
+        

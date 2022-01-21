@@ -1,0 +1,1 @@
+oracle.jdbc.driver.OracleDriver,jdbc:oracle:thin:@metrolinkeu-db2.c1aanmpy6nwh.us-east-1.rds.amazonaws.com:1521:ORCL,TELESIMEXP,MetroLink##2020,@SIMEXN

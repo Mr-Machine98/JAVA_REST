@@ -1,0 +1,1 @@
+oracle.jdbc.driver.OracleDriver,jdbc:oracle:thin:@10.20.10.13:1521:WEBD,PERSEO_ADMINIS,PERSEO0518,TELESIMEX
