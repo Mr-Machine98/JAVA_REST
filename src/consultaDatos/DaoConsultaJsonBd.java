@@ -49,7 +49,7 @@ public class DaoConsultaJsonBd {
                 obj.put("Value", rs.getFloat("NLEC_VALUE"));
                 arrJson.add(obj.toString());
                 
-                actualizarJson(rs.getInt("ID"));
+                actualizarJson(rs.getInt("ID")); // this method is slow, quit out  this method the bucle while
             }
 
             System.out.println(arrJson);
